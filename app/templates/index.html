@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-md-6">
+    <h2>pyndri-flask</h2>
+    <form method="get">
+      <div class="input-group col-md-12">
+        <input name="q" type="text" {% if query %} value="{{ query }}" {% endif %} class="form-control input-lg" autofocus />
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-info btn-lg" type="button">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </span>
+      </div>
+      <a data-toggle="collapse" href="#retrieval_configuration" aria-expanded="false" aria-controls="retrieval_configuration">Toggle retrieval configuration</a>
+      <div id="retrieval_configuration" class="collapse">
+        <div class="input-group col-md-12">
+          <div class="card card-block">
+            <div class="col-xs-6">
+              <label>Smoothing method</label>
+              <div class="radio">
+                <label><input type="radio" name="smoothing_method" value="dirichlet" {% if smoothing_method == 'dirichlet' %} checked {% endif %}>Dirichlet</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="smoothing_method" value="jm" {% if smoothing_method == 'jm' %} checked {% endif %}>Jelinek-Mercer</label>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <label>Smoothing parameter</label>
+              <input name="smoothing_param" type="text" {% if smoothing_param %} value="{{ smoothing_param }}" {% endif %} class="form-control input-sm" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    {% if results %}
+    <div class="input-group col-md-12" style="margin-top: 10px">
+      {% for result in results %}
+        <div style="display: block">
+          <strong>{{ result[0] }}</strong><br />
+          {{ result[1]|safe }}<br /><br />
+        </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
