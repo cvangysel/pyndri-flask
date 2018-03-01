@@ -3,7 +3,7 @@ pyndri-flask
 
 pyndri-flask is an example application that demonstrates how [pyndri](http://github.com/cvangysel/pyndri) can be used to serve an Indri index using [Flask](http://github.com/cvangysel/pyndri).
 
-![Screenshot of pyndri-flask.](screenshot.png?raw=true "Screenshot of pyndri-flask showing the search box and retrieval model configuration.")
+<img src="screenshot.png?raw=true" width="500px" alt="Screenshot of pyndri-flask showing the search box and retrieval model configuration." />
 
 It can be used as the basis for a search engine or as a convenient way to navigate an index for Information Retrieval research.
 
